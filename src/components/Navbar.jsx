@@ -10,14 +10,82 @@ import avatar from '../data/avatar.jpg';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
+
+const NavButton =({title ,customFunc ,icon ,color , dotColor})=> (
+   <TooltipComponent content={title} position='BottomCenter'>
+    <button 
+    type='button'
+    onClick={customFunc}
+    style={{color}}
+    className='relative text-xl rounded-full p-3 hover:bg-light-gray'>
+      <span
+      style={{background: dotColor}}
+      className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'>
+        {icon}
+      </span>
+
+    </button>
+
+   </TooltipComponent>
+)
+
 function Navbar() {
   const {activeMenu ,setActiveMenu} = useStateContext();
-  
+    
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
-      
+      <NavButton
+        title= "Menu"
+        customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
+        color="red"
+        icon={<AiOutlineMenu />}
+        />
+      <div className='flex'>
+      <NavButton
+        title= "Cart"
+        customFunc={() => {}}
+        color="red"
+        icon={<FiShoppingCart/>}
+      />
+      <NavButton
+        title= "Chat"
+        dotColor="#03C9D7 "
+        customFunc={() => {}}
+        color="red"
+        icon={<BsChatLeft/>}
+      />
+      <NavButton
+        title= "Notification"
+        dotColor="#03C9D7 "
+        customFunc={() => {}}
+        color="red"
+        icon={<RiNotification3Line/>}
+      />
+
+      <TooltipComponent
+      content="Profile"
+      position='BottomCenter'>
+
+        <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
+        onClick={()=>{}}>
+          <img 
+          src={avatar}
+          className='rounded-full w-8 h-8' />
+          <p>
+            <span className='text-gray-400 text-14'>Hi ,</span>{' '}
+            <span>
+              Mohamed
+            </span>
+          </p>
+          <MdKeyboardArrowDown className='text-gray-400 text-14' />    
+
+        </div>
+
+      </TooltipComponent>
+
+      </div>
     </div>
   )
 } 
-
-export default Navbar
+ 
+export default Navbar 
