@@ -41,37 +41,38 @@ function App() {
                         <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
                             <Navbar />
                         </div>
-                    </div>
-                    <div>
-                        <Routes>
-                            {/* Dashbord */}
-                            <Route path="/" element={<Ecommerce />} />
-                            <Route path="/Ecommerce" element={<Ecommerce />} />
-                            {/* Orders */}
-                            <Route path="/Orders" element={<Orders />} />
-                            <Route path="/customer" element={<Customers />} />
-                            <Route path="/employees" element={<Employees />} />
-                            {/* apps  */}
-                            <Route path="/kanban" element={<Kanban />} />
-                            <Route path="/editor" element={<Editor />} />
-                            <Route path="/calendar" element={<Calendar />} />
-                            <Route path="/color-picker" element={<ColorPicker />} />
 
-                            {/* charts  */}
-                            <Route path="/line" element={<Line />} />
-                            <Route path="/area" element={<Area />} />
-                            <Route path="/bar" element={<Bar />} />
-                            <Route path="/pie" element={<Pie />} />
-                            <Route path="/financial" element={<Financial />} />
-                            <Route path="/color-mapping" element={<ColorMapping />} />
-                            <Route path="/pyramid" element={<Pyramid />} />
-                            <Route path="/stacked" element={<Stacked />} />
+                        <div>
+                            <Routes>
+                                {/* Dashbord */}
+                                <Route path="/" element={<Ecommerce />} />
+                                <Route path="/Ecommerce" element={<Ecommerce />} />
+                                {/* Orders */}
+                                <Route path="/Orders" element={<Orders />} />
+                                <Route path="/customer" element={<Customers />} />
+                                <Route path="/employees" element={<Employees />} />
+                                {/* apps  */}
+                                <Route path="/kanban" element={<Kanban />} />
+                                <Route path="/editor" element={<Editor />} />
+                                <Route path="/calendar" element={<Calendar />} />
+                                <Route path="/color-picker" element={<ColorPicker />} />
 
-                        </Routes>
+                                {/* charts  */}
+                                <Route path="/line" element={<Line />} />
+                                <Route path="/area" element={<Area />} />
+                                <Route path="/bar" element={<Bar />} />
+                                <Route path="/pie" element={<Pie />} />
+                                <Route path="/financial" element={<Financial />} />
+                                <Route path="/color-mapping" element={<ColorMapping />} />
+                                <Route path="/pyramid" element={<Pyramid />} />
+                                <Route path="/stacked" element={<Stacked />} />
+
+                            </Routes>
+                        </div>
                     </div>
                 </div>
-            </BrowserRouter>
-        </div>
+            </BrowserRouter >
+        </div >
     )
 }
 

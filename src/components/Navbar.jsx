@@ -21,8 +21,8 @@ const NavButton =({title ,customFunc ,icon ,color , dotColor})=> (
       <span
       style={{background: dotColor}}
       className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'>
-        {icon}
       </span>
+      {icon}
 
     </button>
 
@@ -30,7 +30,26 @@ const NavButton =({title ,customFunc ,icon ,color , dotColor})=> (
 )
 
 function Navbar() {
-  const {activeMenu ,setActiveMenu} = useStateContext();
+  const {activeMenu ,setActiveMenu,isClicked,setIsClicked ,handleClick,screenSize,setScreenSize} = useStateContext();
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  useEffect(() => {
+    if (screenSize <=  900) {
+      setActiveMenu(false);
+    } else{
+      setActiveMenu(true);
+    }
+  }, [screenSize]);
+  // function toggleTheme(){
+  //   document.body.classList.toggle('dark')
+  // }
+  // let cartCount;
+  // if (localStorage.getItem('cart')) {
     
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
@@ -43,21 +62,21 @@ function Navbar() {
       <div className='flex'>
       <NavButton
         title= "Cart"
-        customFunc={() => {}}
+        customFunc={() => handleClick('cart')}
         color="red"
         icon={<FiShoppingCart/>}
       />
       <NavButton
         title= "Chat"
         dotColor="#03C9D7 "
-        customFunc={() => {}}
+        customFunc={() => handleClick('chat')}
         color="red"
         icon={<BsChatLeft/>}
       />
       <NavButton
         title= "Notification"
         dotColor="#03C9D7 "
-        customFunc={() => {}}
+        customFunc={() => handleClick('notification')}
         color="red"
         icon={<RiNotification3Line/>}
       />
@@ -67,7 +86,7 @@ function Navbar() {
       position='BottomCenter'>
 
         <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
-        onClick={()=>{}}>
+        onClick={()=>handleClick('userProfile')}>
           <img 
           src={avatar}
           className='rounded-full w-8 h-8' />
@@ -82,6 +101,10 @@ function Navbar() {
         </div>
 
       </TooltipComponent>
+      {isClicked.cart && <Cart/>}
+      {isClicked.chat && <Chat/>}
+      {isClicked.notification && <Notification/>}
+      {isClicked.userProfile && <UserProfile/>}
 
       </div>
     </div>
