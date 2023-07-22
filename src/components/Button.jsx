@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Button() {
+function Button({color ,bgColor ,size,text,borderRadius}) {
   return (
-    <div>
-      
-    </div>
+    <button>
+       
+    </button>
   )
 }
 
