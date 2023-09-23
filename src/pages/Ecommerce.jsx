@@ -77,13 +77,43 @@ const Ecommerce = () => {
               Revenue Updates
             </p>
             <div className='flex items-center gap-4'>
-              <p>
+              <p className='flex items-center gap-2 text-gray-600 hover:drop-shadow-xl'>
                 <span>
                   <GoDotFill />
                 </span>
+                <span>
+                  Expense
+                </span>
+              </p>
+              <p className='flex items-center gap-2 text-green-400 hover:drop-shadow-xl'>
+                <span>
+                  <GoDotFill />
+                </span>
+                <span>
+                  Budget
+                </span>
               </p>
             </div>
-          </div>
+          </div> 
+          <div className='mt-10 flex gap-10 flex-wrap justify-center'>
+            <div className='border-r-1 border-color m-4 pr-10'>
+              <div>
+                <p>
+                  <span className='text-3xl font-semibold'>
+                    $93,438
+
+                  </span>
+                  <span className='p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs'>
+                    23%
+                  </span>
+                </p>
+                <p>
+                  
+                </p>
+              </div>
+
+            </div>
+            </div>
         </div>
       </div>
     </div>
